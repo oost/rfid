@@ -1,12 +1,9 @@
 #ifndef SERIAL_H
 #define SERIAL_H
 
+#include "definitions.h"
 #include <iostream>
 #include <string>
-
-#define F(X) X
-#define DEC 1
-#define HEX 2
 
 class SerialMock {
 public:

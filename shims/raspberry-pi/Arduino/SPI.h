@@ -1,7 +1,7 @@
 #ifndef SPI_H
 #define SPI_H
 
-#include "Arduino.h"
+#include "definitions.h"
 #include <iostream>
 
 #define MFRC522_SPICLOCK 0
