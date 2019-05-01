@@ -6,7 +6,7 @@
 #include <wiringPi.h>
 #include <wiringPiSPI.h>
 
-typedef uint_8 byte;
+typedef char unsigned byte;
 typedef char __FlashStringHelper;
 
 #define SPI_CLOCK_DIV4 1000000 // MFRC522 accept upto 10MHz
