@@ -5,6 +5,9 @@
 #define SDA_PIN 8 // SDA
 #define RST_PIN 25
 
+// Init array that will store new NUID
+byte nuidPICC[4];
+
 /**
  * Helper routine to dump a byte array as hex values to Serial.
  */
@@ -25,7 +28,7 @@ void printDec(byte *buffer, byte bufferSize) {
   }
 }
 
-void loop() {
+void loop(MFRC522 &rfid) {
 
   // Reset the loop if no new card present on the sensor/reader. This saves the
   // entire process when idle.
@@ -82,12 +85,10 @@ int main() {
 
   wiringPiSetupGpio();
 
-  MFRC522 rfid(SS_PIN, RST_PIN); // Instance of the class
+  MFRC522 rfid(SDA_PIN, RST_PIN); // Instance of the class
 
   MFRC522::MIFARE_Key key;
 
-  // Init array that will store new NUID
-  byte nuidPICC[4];
   Serial.begin(9600);
   SPI.begin();     // Init SPI bus
   rfid.PCD_Init(); // Init MFRC522
@@ -101,5 +102,5 @@ int main() {
   printHex(key.keyByte, MFRC522::MF_KEY_SIZE);
 
   while (1)
-    loop();
+    loop(rfid);
 }
