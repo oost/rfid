@@ -3,10 +3,8 @@
 
 #include "definitions.h"
 #include <iostream>
-
-#define MFRC522_SPICLOCK 0
-#define MSBFIRST 0
-#define SPI_MODE0 0
+#include <wiringPi.h>
+#include <wiringPiSPI.h>
 
 struct SPISettings {
   SPISettings(int _a, int _b, int _c) : a(_a), b(_b), c(_c) {}

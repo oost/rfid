@@ -14,4 +14,8 @@ typedef char __FlashStringHelper;
 #define PROGMEM
 #define pgm_read_byte(addr) (*(const unsigned char *)(addr))
 
+#define MFRC522_SPICLOCK 0
+#define MSBFIRST 0
+#define SPI_MODE0 0
+
 #endif

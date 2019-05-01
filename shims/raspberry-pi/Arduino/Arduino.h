@@ -6,7 +6,5 @@
 #include "definitions.h"
 #include <stddef.h>
 #include <string.h>
-#include <wiringPi.h>
-#include <wiringPiSPI.h>
 
 #endif
