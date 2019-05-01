@@ -9,6 +9,11 @@
  * Check firmware only once at startup
  */
 int main() {
+  if (wiringPiSPISetup(0, 1000000) < 0)
+    throw "Couldn't initialize SPI";
+
+  wiringPiSetupGpio();
+
   MFRC522 mfrc522(SDA_PIN, RST_PIN); // Create MFRC522 instance
 
   Serial.begin(9600); // Initialize serial communications with the PC
