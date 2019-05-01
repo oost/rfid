@@ -32,6 +32,8 @@ public:
   }
 
   void begin(int d) {}
+
+  operator bool() const { return true; }
 };
 
 extern SerialMock Serial;
