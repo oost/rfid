@@ -26,7 +26,7 @@ set(MFRC522_SRC
     ${PROJECT_SOURCE_DIR}/../../src/MFRC522Extended.cpp
     ${PROJECT_SOURCE_DIR}/../../src/MFRC522.cpp
     ${PROJECT_SOURCE_DIR}/Arduino/SPI.cpp
-    ${PROJECT_SOURCE_DIR}/Arduino/src/Serial.cpp
+    ${PROJECT_SOURCE_DIR}/Arduino/Serial.cpp
 )
 source_group(src FILES ${MFRC522_SRC})
 
@@ -35,9 +35,9 @@ set(MFRC522_INC
     ${PROJECT_SOURCE_DIR}/../../src/MFRC522.h
     ${PROJECT_SOURCE_DIR}/../../src/MFRC522Extended.h
     ${PROJECT_SOURCE_DIR}/../../src/require_cpp11.h
-    ${PROJECT_SOURCE_DIR}/Arduino/src/Arduino.h
-    ${PROJECT_SOURCE_DIR}/Arduino/src/Serial.h
-    ${PROJECT_SOURCE_DIR}/Arduino/src/SPI.h
+    ${PROJECT_SOURCE_DIR}/Arduino/Arduino.h
+    ${PROJECT_SOURCE_DIR}/Arduino/Serial.h
+    ${PROJECT_SOURCE_DIR}/Arduino/SPI.h
 
 )
 source_group(include FILES ${MFRC522_INC})
