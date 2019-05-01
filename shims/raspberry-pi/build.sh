@@ -7,11 +7,12 @@
 # exit on firts error
 set -e
 
+
 mkdir -p build
 cd build
 
 # Generate a Makefile for GCC (or Clang, depanding on CC/CXX envvar)
-cmake -DCMAKE_BUILD_TYPE=Debug -DMFRC522_USE_GCOV=OFF -DMFRC522_BUILD_EXAMPLES=ON -DMFRC522_BUILD_TESTS=ON -DMFRC522_RUN_CPPCHECK=ON ..
+cmake -DCMAKE_BUILD_TYPE=Debug -DMFRC522_BUILD_TESTS=ON ..
 
 # Build (ie 'make')
 cmake --build .
