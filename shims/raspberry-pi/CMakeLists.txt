@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.7) # first version with add_compile_options()
 project(MFRC522)
 
 message (STATUS "CMake version: ${CMAKE_VERSION}")
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Print CXX compiler information
@@ -60,7 +60,7 @@ include_directories("${PROJECT_SOURCE_DIR}/Arduino")
 # add sources 
 add_library(mfrc522 ${MFRC522_SRC} ${MFRC522_INC})
 target_link_libraries(mfrc522 wiringPi)
-target_compile_options(mfrc522 PRIVATE -Wall -Wextra -Werror -pedantic -Wconversion -Wsign-conversion)
+target_compile_options(mfrc522 PRIVATE -Wall -Wextra -Werror -pedantic -Wsign-conversion)
 target_include_directories(mfrc522 SYSTEM PUBLIC ${PROJECT_SOURCE_DIR}/Ardunio)
 
 
