@@ -46,7 +46,12 @@ source_group(include FILES ${MFRC522_INC})
 set(MFRC522_TESTS
   test/MFRC522_test.cpp
 )
-source_group(tests FILES ${MFRC522_TESTS})
+set(MFRC522_TEST_CHECK_VERSION
+  test/firmware_check_version.cpp
+)
+source_group(tests FILES ${MFRC522_TESTS} ${MFRC522_TEST_CHECK_VERSION})
+
+
 
 # list of script files of the library
 set(MFRC522_SCRIPT
@@ -69,7 +74,11 @@ if (MFRC522_BUILD_TESTS)
 
     add_executable(MFRC522_test ${MFRC522_TESTS})
     target_link_libraries(MFRC522_test mfrc522 )
-    # target_include_directories(MFRC522_test PUBLIC ${PROJECT_SOURCE_DIR}/src)
+
+    add_executable(firmware_check_version ${MFRC522_TEST_CHECK_VERSION})
+    target_include_directories(firmware_check_version PUBLIC ${PROJECT_SOURCE_DIR}/../../src)
+    target_link_libraries(firmware_check_version mfrc522 )
+    # target_include_directories(mfrc522 SYSTEM PUBLIC ${PROJECT_SOURCE_DIR}/Ardunio)
 
 else (MFRC522_BUILD_TESTS)
     message(STATUS "MFRC522_BUILD_TESTS OFF")

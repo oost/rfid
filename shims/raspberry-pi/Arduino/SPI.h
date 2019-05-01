@@ -25,6 +25,8 @@ public:
     wiringPiSetup();
   }
 
+  void begin() {}
+
 private:
   byte _address;
 };

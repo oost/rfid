@@ -30,6 +30,8 @@ public:
     print(val, type);
     std::cout << "\n";
   }
+
+  void begin(int d) {}
 };
 
 extern SerialMock Serial;
