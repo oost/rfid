@@ -49,7 +49,10 @@ set(MFRC522_TESTS
 set(MFRC522_TEST_CHECK_VERSION
   test/firmware_check_version.cpp
 )
-source_group(tests FILES ${MFRC522_TESTS} ${MFRC522_TEST_CHECK_VERSION})
+set(MFRC522_TEST_READ_NUID
+  test/read_nuid.cpp
+)
+source_group(tests FILES ${MFRC522_TESTS} ${MFRC522_TEST_READ_NUID})
 
 
 
@@ -80,6 +83,10 @@ if (MFRC522_BUILD_TESTS)
     target_link_libraries(firmware_check_version mfrc522 )
     # target_include_directories(mfrc522 SYSTEM PUBLIC ${PROJECT_SOURCE_DIR}/Ardunio)
 
+    add_executable(read_nuid ${MFRC522_TEST_READ_NUID})
+    target_include_directories(read_nuid PUBLIC ${PROJECT_SOURCE_DIR}/../../src)
+    target_link_libraries(read_nuid mfrc522 )
+   
 else (MFRC522_BUILD_TESTS)
     message(STATUS "MFRC522_BUILD_TESTS OFF")
 endif (MFRC522_BUILD_TESTS)
