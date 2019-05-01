@@ -57,15 +57,15 @@ include_directories("${PROJECT_SOURCE_DIR}/Arduino")
 add_library(mfrc522 ${MFRC522_SRC} ${MFRC522_INC})
 target_link_libraries(mfrc522 wiringPi)
 target_compile_options(mfrc522 PRIVATE -Wall -Wextra -Werror -pedantic -Wconversion -Wsign-conversion)
+target_include_directories(mfrc522 SYSTEM PUBLIC ${PROJECT_SOURCE_DIR}/Ardunio)
 
 
 option(MFRC522_BUILD_TESTS "Build tests." OFF)
 if (MFRC522_BUILD_TESTS)
-    # add the basic example executable
 
     add_executable(MFRC522_test ${MFRC522_TESTS})
     target_link_libraries(MFRC522_test mfrc522 )
-    target_include_directories(MFRC522_test PUBLIC ${PROJECT_SOURCE_DIR}/src)
+    # target_include_directories(MFRC522_test PUBLIC ${PROJECT_SOURCE_DIR}/src)
 
 else (MFRC522_BUILD_TESTS)
     message(STATUS "MFRC522_BUILD_TESTS OFF")
