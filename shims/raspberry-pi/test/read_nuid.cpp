@@ -1,6 +1,9 @@
 
 #include <MFRC522.h>
 #include <SPI.h>
+#include <chrono>
+#include <iostream>
+#include <thread>
 
 #define SDA_PIN 8 // SDA
 #define RST_PIN 25
@@ -29,15 +32,21 @@ void printDec(byte *buffer, byte bufferSize) {
 }
 
 void loop(MFRC522 &rfid) {
+  using namespace std::chrono_literals;
+  std::this_thread::sleep_for(200ms);
 
   // Reset the loop if no new card present on the sensor/reader. This saves the
   // entire process when idle.
-  if (!rfid.PICC_IsNewCardPresent())
+  if (!rfid.PICC_IsNewCardPresent()) {
+    std::cout << "No card present\n";
     return;
+  }
 
   // Verify if the NUID has been readed
-  if (!rfid.PICC_ReadCardSerial())
+  if (!rfid.PICC_ReadCardSerial()) {
+    std::cout << "Couldn't read card\n";
     return;
+  }
 
   Serial.print(F("PICC type: "));
   MFRC522::PICC_Type piccType = rfid.PICC_GetType(rfid.uid.sak);
